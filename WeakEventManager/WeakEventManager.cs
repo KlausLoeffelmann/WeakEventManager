@@ -7,7 +7,7 @@ namespace WeakEventManager
     /// Allows to bind the PropertyChangedEvent from any ViewModel implementing INotifyPropertyChanged weak. 
     /// The type of the view does not matter.
     /// </summary>
-    public class WeakPropertyChangedEventManager
+    public class WeakEventManager
     {
         internal delegate void OIPropertyChangedEventHandler<viewType>(
                                                    viewType view,
@@ -23,16 +23,16 @@ namespace WeakEventManager
         /// <param name="viewModel">The ViewModel whose PropertyChanged Event we want to bind weakly.</param>
         /// <param name="targetProc">The target event handler, we want to bind weakly.</param>
         /// <returns></returns>
-        public static WeakReference<WeakPropertyChangedEventManager> AddHandlerWeak(
+        public static WeakReference<WeakEventManager> AddHandlerWeak(
                                           INotifyPropertyChanged viewModel,
                                           PropertyChangedEventHandler targetProc)
         {
-            return new WeakReference<WeakPropertyChangedEventManager>(
-                new WeakPropertyChangedEventManager(viewModel,
+            return new WeakReference<WeakEventManager>(
+                new WeakEventManager(viewModel,
                                      targetProc));
         }
 
-        internal WeakPropertyChangedEventManager(INotifyPropertyChanged viewModel,
+        internal WeakEventManager(INotifyPropertyChanged viewModel,
                                 Delegate targetProc)
         {
             object view = targetProc.Target;
