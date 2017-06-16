@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Reflection;
 
 namespace WeakEventManager
 {
@@ -40,7 +41,7 @@ namespace WeakEventManager
 
             var delegateType = typeof(OIPropertyChangedEventHandler<>).MakeGenericType(view.GetType());
             
-            myOpenInstanceDelegate = targetProc.Method.CreateDelegate(delegateType, null);
+            myOpenInstanceDelegate = targetProc.GetMethodInfo().CreateDelegate(delegateType, null);
 
             (viewModel).PropertyChanged += PropertyChangedProc;
         }
