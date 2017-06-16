@@ -75,5 +75,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WeakEventManager\WeakEventManager.csproj">
+      <Project>{224d0636-d3de-468e-bffb-35f0d39d4d41}</Project>
+      <Name>WeakEventManager</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
